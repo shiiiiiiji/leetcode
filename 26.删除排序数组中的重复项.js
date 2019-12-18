@@ -60,15 +60,27 @@
  * @param {number[]} nums
  * @return {number}
  */
+// 1.
+// var removeDuplicates = function(nums) {
+//     if (nums.length < 2) return nums.length;
+//     let j = 0;
+//     for (let i = 0;i < nums.length - 1; i++) {
+//         if (nums[i] !== nums[i + 1] ) {
+//             nums[++j] = nums[i + 1];
+//         }
+//     }
+//     return j + 1;
+// };
+
+// 2.非常简洁
 var removeDuplicates = function(nums) {
-    if (nums.length < 2) return nums.length;
-    let j = 0;
-    for (let i = 0;i < nums.length - 1; i++) {
-        if (nums[i] !== nums[i + 1] ) {
-            nums[++j] = nums[i + 1];
+    let i = 0;
+    nums.forEach(elem => {
+        if (elem !== nums[i]) {
+            nums[++i] = elem;
         }
-    }
-    return j + 1;
+    });
+    return nums.length && i + 1;
 };
 // @lc code=end
 
